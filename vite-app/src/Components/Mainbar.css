@@ -1,8 +1,8 @@
 .rightside{
     background-color: #181818;
     color: white;
-    width: 1260px;
-    margin-right: -8px;
+    width: 1278px;
+    /* margin-right: -8px; */
 }
 .rightfirst{
     display: flex;
@@ -46,8 +46,7 @@
 }
 .allbar{
     display: flex;
-    width: 1270px;
-    overflow-x: hidden;
+    width: 1240px;
 }
 .allbar::-webkit-slider-runnable-track{
     width: 0;

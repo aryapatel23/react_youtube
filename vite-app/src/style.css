@@ -1,7 +1,11 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    overflow-y: hidden;
+}
+
 .main{
-    width: 100vw;
-    margin-top: -8px;
-    margin-left: -8px;
+    width: 100%;
     display: flex;
-    overflow-x: hidden;
+    
 }
