@@ -28,6 +28,13 @@
     padding-right: 20px;
 
 }
+.search input{
+    width: 450px;
+    height: 40px;
+    background-color: black;
+    border: gray;
+    color: white;
+}
 .mic{
     margin-left: 10px;
 }
@@ -106,4 +113,24 @@
 .postertitle{
     width: 230px;
     font-size: 18px;
+}
+
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
