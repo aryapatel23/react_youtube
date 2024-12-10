@@ -6,7 +6,7 @@ import Sidebar from './Components/Sidebar.jsx'
 import Mainbar from './Components/Mainbar.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
