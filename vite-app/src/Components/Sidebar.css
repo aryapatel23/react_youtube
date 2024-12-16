@@ -42,17 +42,24 @@
     padding-right: 10px;
 }
 .homesection .home{
-    margin-left: 50px;
+    margin-left: 25px;
     display: flex;
     align-items: center;
+    background-color:#212121;
     
+}
+
+.home:hover {
+    background-color: #383838;
+    border-radius: 20px;
 }
 .homesection .home img{
     width: 25px;
     height: 25px;
     padding-top: 7px;
     padding-bottom: 7px;
-    padding-right: 10px;
+    padding-right: 25px;
+    padding-left: 10px;
 }
 .nevhr{
     opacity: 0.2;
@@ -68,11 +75,19 @@
 .lib .library{
     display: flex;
     align-items: center;
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-top: 5px;
+    margin-left: 25px;
 }
 .lib .library img{
-    padding-right: 10px;
+    padding-right: 25px;
+    padding-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
+}
+.library:hover{
+    background-color: #383838;
+    border-radius: 20px;
 }
 .libhr{
     opacity: 0.2;

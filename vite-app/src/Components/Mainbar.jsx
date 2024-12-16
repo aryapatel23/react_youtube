@@ -4,7 +4,7 @@
 
 
 // function Playcontrols(){
-    
+
 //     // const grid=[
 //     //     {img:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Thumbnail-8.png?raw=true", smallimg:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Ellipse%204%20(1).png?raw=true", title:'Bulbuli|Coke Studio Bangla| Seasion One|Ritu RajXNandita' , subtitle1: 'Coke Studio Bangla',subtitle2: '1.5M views . 2 days ago' , subtitleimg:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/verified.png?raw=true"},
 //     //     {img:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Thumbnail-9.png?raw=true", smallimg:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Ellipse%204%20(2).png?raw=true", title:'Infinix Note 12:             AMOLED    HelloG88 Soc!' , subtitle1: 'ATC Android ToTo C..',subtitle2: ' 4.2M views . 2 days ago' , subtitleimg:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/verified.png?raw=true"},
@@ -23,10 +23,10 @@
 
 //     const [images,setimages]=useState([]);
 
-    
+
 
 //     useEffect(() => {
-        
+
 //         fetch('https://api-2-woql.onrender.com/grid')
 //         .then((response) =>response.json())
 //         .then((data) => setimages(data))
@@ -40,8 +40,8 @@
 
 //     return(
 //         <>
-        
-        
+
+
 //         <div className="rightside">
 //                 <div className="rightfirst">
 //                     <div className="search">
@@ -62,7 +62,7 @@
 //                         {/* <img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/create.png?raw=true" alt="" className="create" /> */}
 //                         <div className="photo" >
 //                         </div>
-                        
+
 //                         </div>
 //                 </div>
 
@@ -81,14 +81,14 @@
 //                    <p className="libar5">iphone 13</p>
 //                    <p className="libar6">User interface Design</p>  
 
-                    
+
 //                 </div>
-   
+
 //                 <hr className="hr5"/>
 
-                
+
 //                 <div className="main">
-              
+
 //                 {images.map((i) => (
 //                             <div className="card" key={i}>
 //                                 <img src={i.img} alt="" className='firstcard' />
@@ -100,18 +100,18 @@
 //                     </div>
 //               </div>
 
-             
-                
 
-                     
-                  
-                
-            
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
 //         </>
 //     )
 // }
@@ -140,7 +140,7 @@
 //             .catch((error) => console.error('Error fetching deta: ' ,error));
 //         },[]);
 
-  
+
 //     return (
 
 //         <>
@@ -174,7 +174,7 @@
 //                 </div>
 //                 <hr className="secondhr" />
 //                 <div className="row1">
-                    
+
 //                     {video.map((i) => (
 //                             <div className="poster" key={i}>
 //                                 <img src={i.img} alt="" className='firstposter' />
@@ -621,7 +621,7 @@
 //     const [cache, setCache] = useState({});
 //     const API_KEY = "AIzaSyDfWCefxvLF9AiVsnoJ-z02ZnzxDY27QJc"; // Replace with your API key
 //     const CHANNEL_ID = "UCBR8-60-B28hp2BmDPdntcQ"; // Example: Official YouTube Channel ID (replace with yours)
-    
+
 //     const debounceTimeoutRef = useRef(null);
 
 //     useEffect(() => {
@@ -908,47 +908,255 @@
 // export default Mainbar;
 
 
+// import './Mainbar.css';
+// import React, { useEffect, useState, useRef } from 'react';
+
+// function Mainbar() {
+//     const [video, setVideo] = useState([]);
+//     const [searchTerm, setSearchTerm] = useState('');
+//     const [filteredVideos, setFilteredVideos] = useState([]);
+//     const [nextPageToken, setNextPageToken] = useState(null);
+//     const [cache, setCache] = useState({});
+//     const API_KEY = "AIzaSyC-_0wurknfOCdICpMWWD57ZjeY9qiizYI"; // Replace with your API key
+//     // const CHANNEL_ID = "UCBR8-60-B28hp2BmDPdntcQ"; // Replace with your channel ID
+
+//     const debounceTimeoutRef = useRef(null);
+
+//     useEffect(() => {
+//         // Fetch initial videos from YouTube API
+//         const fetchData = async () => {
+//             try {
+//                 const response = await fetch(
+//                     `https://www.googleapis.com/youtube/v3/search?part=snippet&q=react&key=AIzaSyC-_0wurknfOCdICpMWWD57ZjeY9qiizYI&type=video&maxResults=1`
+//                 );
+//                 const data = await response.json();
+//                 const videos = data.items.map((item) => ({
+//                     img: item.snippet.thumbnails.high.url,
+//                     smallimg: item.snippet.thumbnails.default.url,
+//                     title: item.snippet.title,
+//                     subtitle1: item.snippet.channelTitle,
+//                     subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
+//                 }));
+//                 setVideo(videos);
+//                 setFilteredVideos(videos);
+//                 if (data.nextPageToken) {
+//                     setNextPageToken(data.nextPageToken);
+//                 }
+//             } catch (error) {
+//                 console.error("Error fetching data: ", error);
+//             }
+//         };
+
+//         fetchData();
+//     }, [2]);
+
+//     const handleSearchChange = (e) => {
+//         setSearchTerm(e.target.value);
+//     };
+
+//     const performSearch = async () => {
+//         if (searchTerm.trim() === '') {
+//             setFilteredVideos(video);
+//             return;
+//         }
+
+//         if (cache[searchTerm]) {
+//             setFilteredVideos(cache[searchTerm]);
+//             return;
+//         }
+
+//         try {
+//             const response = await fetch(
+//                 `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&maxResults=50&type=video&key=${API_KEY}`
+//             );
+//             const data = await response.json();
+//             const videos = data.items.map((item) => ({
+//                 img: item.snippet.thumbnails.high.url,
+//                 smallimg: item.snippet.thumbnails.default.url,
+//                 title: item.snippet.title,
+//                 subtitle1: item.snippet.channelTitle,
+//                 subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
+//             }));
+
+//             setCache((prevCache) => ({ ...prevCache, [searchTerm]: videos }));
+//             setFilteredVideos(videos);
+
+//             if (data.nextPageToken) {
+//                 setNextPageToken(data.nextPageToken);
+//             }
+//         } catch (error) {
+//             console.error("Error fetching search results: ", error);
+//         }
+//     };
+
+//     const loadMoreVideos = async () => {
+//         if (!nextPageToken) return;
+
+//         try {
+//             const response = await fetch(
+//                 `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=50&pageToken=${nextPageToken}&order=date&type=video&key=${API_KEY}`
+//             );
+//             const data = await response.json();
+//             const videos = data.items.map((item) => ({
+//                 img: item.snippet.thumbnails.high.url,
+//                 smallimg: item.snippet.thumbnails.default.url,
+//                 title: item.snippet.title,
+//                 subtitle1: item.snippet.channelTitle,
+//                 subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
+//             }));
+
+//             setVideo((prevVideos) => [...prevVideos, ...videos]);
+//             setFilteredVideos((prevVideos) => [...prevVideos, ...videos]);
+
+//             if (data.nextPageToken) {
+//                 setNextPageToken(data.nextPageToken);
+//             }
+//         } catch (error) {
+//             console.error("Error loading more videos: ", error);
+//         }
+//     };
+
+
+
+//     const [showvideo, setShowvideo] = useState(null);
+
+
+//     useEffect(() => {
+//         fetch(
+//             'https://www.googleapis.com/youtube/v3/search?part=snippet&q=react&key=AIzaSyC-_0wurknfOCdICpMWWD57ZjeY9qiizYI&type=video&maxResults=5'
+//         )
+//             .then(response => response.json())
+//             .then(data => {
+//                 setShowvideo(data.items.id.videoId);
+//             })
+//             .catch(error => console.error("Error fetching videos:", error));
+//     }, []);
+
+
+
+
+//     return (
+//         <div className="rightside">
+//             <div className="rightfirst">
+//                 <form
+//                     className="search"
+//                     onSubmit={(e) => {
+//                         e.preventDefault();
+//                         performSearch();
+//                     }}
+//                 >
+//                     <input
+//                         type="text"
+//                         value={searchTerm}
+//                         onChange={handleSearchChange}
+//                         placeholder="Search"
+//                         className="search-input"
+//                     />
+//                     <button type="submit" className="search-button">
+//                         <img
+//                             src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/search.png?raw=true"
+//                             alt="Search"
+//                         />
+//                     </button>
+//                 </form>
+//                 <div className="mic">
+//                     <img
+//                         src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/mic.png?raw=true"
+//                         alt="Mic"
+//                     />
+//                 </div>
+//             </div>
+//             <hr className="firsthr" />
+
+
+//             <div className="row1" onClick={ivideo}>
+//                 {showvideo &&
+//                     (
+//                         <iframe
+//                             src="https://www.youtube.com/embed/3B0rYACI9wg"
+//                             style={{
+//                                 width: '290px',
+//                                 height: '500px',
+//                                 marginTop: '20px',
+//                             }}
+//                             title="iframe"
+//                         ></iframe>
+//                     )
+
+//                 }
+//                 {filteredVideos.map((i, index) => (
+//                     <div className="poster" key={index}>
+//                         <img src={i.img} alt="Poster" className="firstposter" />
+//                         <div className="posterflex">
+//                             <img src={i.smallimg} alt="Small Thumbnail" />
+//                             <div className="postertitle">{i.title}</div>
+//                         </div>
+//                         <div className="postersmalltxt">
+//                             {i.subtitle1} {i.subtitle2}
+//                         </div>
+//                     </div>
+//                 ))}
+//             </div>
+//             {nextPageToken && (
+//                 <button className="load-more" onClick={loadMoreVideos}>
+//                     Load More
+//                 </button>
+//             )}
+//         </div>
+//     );
+// }
+
+// export default Mainbar;
+
+
+
+
+
+
+
+
+
+
 import './Mainbar.css';
 import React, { useEffect, useState, useRef } from 'react';
+import Sidebar from './Sidebar';
 
 function Mainbar() {
-    const [video, setVideo] = useState([]);
+    const [videos, setVideos] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredVideos, setFilteredVideos] = useState([]);
     const [nextPageToken, setNextPageToken] = useState(null);
     const [cache, setCache] = useState({});
-    const API_KEY = "AIzaSyDfWCefxvLF9AiVsnoJ-z02ZnzxDY27QJc"; // Replace with your API key
-    const CHANNEL_ID = "UCBR8-60-B28hp2BmDPdntcQ"; // Replace with your channel ID
-    
-    const debounceTimeoutRef = useRef(null);
+    const [selectedVideo, setSelectedVideo] = useState(null); // Store selected video for modal
+    const API_KEY = "AIzaSyAr9Bf_hipafxYoUMroQ0-mI3YLIBhghYc"; // Replace with your API key
 
-    useEffect(() => {
-        // Fetch initial videos from YouTube API
-        const fetchData = async () => {
-            try {
-                const response = await fetch(
-                    `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=50&order=date&type=video&key=${API_KEY}`
-                );
-                const data = await response.json();
-                const videos = data.items.map((item) => ({
-                    img: item.snippet.thumbnails.high.url,
-                    smallimg: item.snippet.thumbnails.default.url,
-                    title: item.snippet.title,
-                    subtitle1: item.snippet.channelTitle,
-                    subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
-                }));
-                setVideo(videos);
-                setFilteredVideos(videos);
-                if (data.nextPageToken) {
-                    setNextPageToken(data.nextPageToken);
-                }
-            } catch (error) {
-                console.error("Error fetching data: ", error);
+
+    const defaultsearch = 'music';
+
+    const fetchData = async (userQuery = "react") => {
+        try {
+            const response = await fetch(
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${userQuery}&key=AIzaSyAr9Bf_hipafxYoUMroQ0-mI3YLIBhghYc&type=video&maxResults=5`
+            );
+            const data = await response.json();
+            const videos = data.items.map((item) => ({
+                videoId: item.id.videoId,
+                img: item.snippet.thumbnails.high.url,
+                smallimg: item.snippet.thumbnails.default.url,
+                title: item.snippet.title,
+                subtitle1: item.snippet.channelTitle,
+                subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
+            }));
+            setVideos(videos);
+            setFilteredVideos(videos);
+            if (data.nextPageToken) {
+                setNextPageToken(data.nextPageToken);
             }
-        };
+        } catch (error) {
+            console.error("Error fetching data: ", error);
+        }
+    };
 
-        fetchData();
-    }, []);
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
@@ -956,7 +1164,7 @@ function Mainbar() {
 
     const performSearch = async () => {
         if (searchTerm.trim() === '') {
-            setFilteredVideos(video);
+            setFilteredVideos(videos);
             return;
         }
 
@@ -967,10 +1175,11 @@ function Mainbar() {
 
         try {
             const response = await fetch(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&maxResults=50&type=video&key=${API_KEY}`
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&maxResults=5&type=video&key=${API_KEY}`
             );
             const data = await response.json();
             const videos = data.items.map((item) => ({
+                videoId: item.id.videoId,
                 img: item.snippet.thumbnails.high.url,
                 smallimg: item.snippet.thumbnails.default.url,
                 title: item.snippet.title,
@@ -994,10 +1203,11 @@ function Mainbar() {
 
         try {
             const response = await fetch(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=50&pageToken=${nextPageToken}&order=date&type=video&key=${API_KEY}`
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchTerm}&pageToken=${nextPageToken}&maxResults=5&type=video&key=${API_KEY}`
             );
             const data = await response.json();
             const videos = data.items.map((item) => ({
+                videoId: item.id.videoId,
                 img: item.snippet.thumbnails.high.url,
                 smallimg: item.snippet.thumbnails.default.url,
                 title: item.snippet.title,
@@ -1005,7 +1215,7 @@ function Mainbar() {
                 subtitle2: new Date(item.snippet.publishedAt).toLocaleDateString(),
             }));
 
-            setVideo((prevVideos) => [...prevVideos, ...videos]);
+            setVideos((prevVideos) => [...prevVideos, ...videos]);
             setFilteredVideos((prevVideos) => [...prevVideos, ...videos]);
 
             if (data.nextPageToken) {
@@ -1016,59 +1226,130 @@ function Mainbar() {
         }
     };
 
+    const handleVideoClick = (videoId) => {
+        setSelectedVideo(videoId); // Set the clicked video for the modal
+    };
+
+    const closeModal = () => {
+        setSelectedVideo(null); // Close the modal
+    };
+
+
+    const handleall = (allbar) => {
+        setSearchTerm(allbar);
+        fetchData(allbar);
+    }
+
+
+    useEffect(() => {
+        fetchData(defaultsearch);
+    }, [2]);
+
+
     return (
-        <div className="rightside">
-            <div className="rightfirst">
-                <form
-                    className="search"
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        performSearch();
-                    }}
-                >
-                    <input
-                        type="text"
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                        placeholder="Search"
-                        className="search-input"
-                    />
-                    <button type="submit" className="search-button">
-                        <img
-                            src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/search.png?raw=true"
-                            alt="Search"
-                        />
-                    </button>
-                </form>
-                <div className="mic">
-                    <img
-                        src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/mic.png?raw=true"
-                        alt="Mic"
-                    />
-                </div>
-            </div>
-            <hr className="firsthr" />
-            <div className="row1">
-                {filteredVideos.map((i, index) => (
-                    <div className="poster" key={index}>
-                        <img src={i.img} alt="Poster" className="firstposter" />
-                        <div className="posterflex">
-                            <img src={i.smallimg} alt="Small Thumbnail" />
-                            <div className="postertitle">{i.title}</div>
-                        </div>
-                        <div className="postersmalltxt">
-                            {i.subtitle1} {i.subtitle2}
+        <>
+
+            <div className='' style={{ display: "flex" }}>
+                <Sidebar dataset={fetchData} />
+                <div className="rightside">
+                    <div className="rightfirst">
+                        <form
+                            className="search"
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                performSearch();
+                            }}
+                        >
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                placeholder="Search"
+                                className="search-input"
+                            />
+                            <button type="submit" className="search-button">
+                                <img
+                                    src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/search.png?raw=true"
+                                    alt="Search"
+                                />
+                            </button>
+                        </form>
+                        <div className="mic">
+                            <img
+                                src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/mic.png?raw=true"
+                                alt="Mic"
+                            />
                         </div>
                     </div>
-                ))}
+                    <hr className="firsthr" />
+
+                    <div className="allbar">
+                        <div className="flex1">
+                            <div className="all">All</div>
+
+                            <div className="flex1ele" onClick={() => handleall('Coke Studio')}>Coke Studio</div>
+                            <div className="flex1ele" onClick={() => handleall('UX')}>UX</div>
+                            <div className="flex1ele" onClick={() => handleall('case study')}>Case Study</div>
+                            <div className="flex1ele" onClick={() => handleall('Music')}>Music</div>
+                            <div className="flex1ele" onClick={() => handleall('Bangla lofi')}>Bangla Lofi</div>
+                            <div className="flex1ele" onClick={() => handleall('Tour')}>Tour</div>
+                            <div className="flex1ele" onClick={() => handleall('Saintmartin')}>Saintmartin</div>
+                            <div className="flex1ele" onClick={() => handleall('Tech')}>Tech</div>
+                            <div className="flex1ele" onClick={() => handleall('iphone 13')}>iPhone 13</div>
+                            <div className="flex1ele" onClick={() => handleall('user interface design')}>User Interface Design</div>
+                            <div className="flex1ele" onClick={() => handleall('computer')}>Com</div>
+                        </div>
+                    </div>
+                    <hr className="secondhr" />
+                    <div className="row1">
+                        {filteredVideos.map((video, index) => (
+                            <div
+                                className="poster"
+                                key={index}
+                                onClick={() => handleVideoClick(video.videoId)}
+                            >
+                                <img src={video.img} alt="Poster" className="firstposter" />
+                                <div className="posterflex">
+                                    <img src={video.smallimg} alt="Small Thumbnail" />
+                                    <div className="postertitle">{video.title}</div>
+                                </div>
+                                <div className="postersmalltxt">
+                                    {video.subtitle1} {video.subtitle2}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    {nextPageToken && (
+                        <button className="load-more" onClick={loadMoreVideos}>
+                                More <img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/down_arrow.png?raw=true" alt="" />
+                        </button>
+                    )}
+
+                    {/* Modal */}
+                    {selectedVideo && (
+                        <div className="modal">
+                            <div className="modal-content">
+                                <button className="close-button" onClick={closeModal}>
+                                    &times;
+                                </button>
+                                <iframe
+                                    width="560"
+                                    height="315"
+                                    src={`https://www.youtube.com/embed/${selectedVideo}`}
+                                    title="YouTube video player"
+
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-            {nextPageToken && (
-                <button className="load-more" onClick={loadMoreVideos}>
-                    Load More
-                </button>
-            )}
-        </div>
+
+        </>
     );
 }
 
 export default Mainbar;
+

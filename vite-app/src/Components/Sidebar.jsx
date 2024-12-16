@@ -1,6 +1,6 @@
 import './Sidebar.css'
 
-function Sidebar() {
+function Sidebar({dataset}) {
 
     const index =[
         {img:"https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Ellipse%201.png?raw=true",title:'Nadir On The Go'},
@@ -18,19 +18,19 @@ function Sidebar() {
             <div className="sidebar">
                 <div className="logosection"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/hambarger.png?raw=true" alt="" className="threedesh" /><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/Youtube%20logo.png?raw=true" alt="" className="logo" /></div>
                 <div className="homesection">
-                    <div className="homefirst"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/home.png?raw=true" alt="" className="homimg" />Home</div>
-                    <div className="home"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/explore.png?raw=true" alt="" className="homimg" />Explores</div>
-                    <div className="home"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/shorts.png?raw=true" alt="" className="homimg" />Shorts</div>
-                    <div className="home"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/subscription.png?raw=true" alt="" className="homimg" />Subscription</div>
+                    <div className="home"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/home.png?raw=true" alt="" className="homimg" />Home</div>
+                    <div className="home" onClick={()=>dataset("Explores")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/explore.png?raw=true" alt="" className="homimg" />Explores</div>
+                    <div className="home" onClick={()=>dataset("Shorts")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/shorts.png?raw=true" alt="" className="homimg" />Shorts</div>
+                    <div className="home" onClick={()=>dataset("Subscription")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/subscription.png?raw=true" alt="" className="homimg" />Subscription</div>
                 </div>
                 <hr className='nevhr' />
                 <div className="lib">
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/library.png?raw=true" alt="" />Library</div>
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/history.png?raw=true" alt="" />History</div>
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/your_video.png?raw=true" alt="" />Your videos</div>
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/watch_later.png?raw=true" alt="" />Watch later</div>
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/liked.png?raw=true" alt="" />Liked videos</div>
-                    <div className="library"><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/down_arrow.png?raw=true" alt="" />Show more</div>
+                    <div className="library" onClick={()=>dataset("games")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/library.png?raw=true" alt="" />GAME</div>
+                    <div className="library" onClick={()=>dataset("Music")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/history.png?raw=true" alt="" />History</div>
+                    <div className="library" onClick={()=>dataset("Movies")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/your_video.png?raw=true" alt="" />Your videos</div>
+                    <div className="library" onClick={()=>dataset("Trending")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/watch_later.png?raw=true" alt="" />Watch later</div>
+                    <div className="library" onClick={()=>dataset("Like")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/liked.png?raw=true" alt="" />Liked videos</div>
+                    <div className="library" onClick={()=>dataset("games")}><img src="https://github.com/PatelNeelMahesh/frontend_tasks/blob/main/02.youtube-clone/assets/down_arrow.png?raw=true" alt="" />Show more</div>
                 </div>
                 <hr className="libhr" />
                 <div className="sub">SUBSCRIPTION</div>
